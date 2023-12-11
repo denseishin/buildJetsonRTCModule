@@ -1,16 +1,18 @@
 #!/bin/sh
-# Prepare to build the RTC DS3232 module  for LT4 21.4 on the NVIDIA Jetson TK1
+# Prepare to build the RTC DS3232 module  for LT4 35.1 on the NVIDIA Jetson AGX Xavier
 if [ $(id -u) != 0 ]; then
    echo "This script requires root permissions"
    echo "$ sudo "$0""
    exit
 fi
-# Get the kernel source for LT4 21.4
+# Get the kernel source for LT4 35.1
 cd /usr/src/
-wget http://developer.download.nvidia.com/embedded/L4T/r21_Release_v5.0/source/kernel_src.tbz2
+wget https://developer.nvidia.com/embedded/l4t/r35_release_v1.0/sources/public_sources.tbz2
+tar -xvf public_sources.tbz2
+cd Linux_for_Tegra/source/public/
 # Decompress
 tar -xvf kernel_src.tbz2
-cd kernel
+cd kernel/kernel-5.10/
 # Get the kernel configuration file
 zcat /proc/config.gz > .config
 # Enable DS3232 compilation; it should be the same as a DS1307
