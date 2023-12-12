@@ -8,7 +8,7 @@ fi
 
 # Remove the kernel sources and build entrails
 sudo rm -r /usr/src/gtest
-sudo rm -r /usr/src/kernel
-sudo rm    /usr/src/kernel_src.tbz2
+sudo rm -r /usr/src/Linux_for_Tegra
+sudo rm    /usr/src/public_sources.tbz2
 
 
